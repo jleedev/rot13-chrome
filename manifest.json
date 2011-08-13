@@ -1,0 +1,11 @@
+{
+  "name": "ROT13 Selection",
+  "version": "1.0",
+  "description": "Translate the selected text with ROT13",
+  "background_page": "background.html",
+  "permissions": [
+    "tabs",
+    "contextMenus",
+    "<all_urls>"
+  ]
+}
