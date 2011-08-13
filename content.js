@@ -13,9 +13,15 @@ function selectionLiesInOneNode(node, startOffset, endOffset) {
 function selectionSpansManyNodes(range) {
   replaceTextIn(range.startContainer,
       range.startOffset, range.startContainer.length);
-  traverse(range.startContainer, range.endContainer);
-  replaceTextIn(range.endContainer,
-      0, range.endOffset);
+  end = drillDown(range.endContainer)
+  traverse(range.startContainer, end);
+  replaceTextIn(end, 0, range.endOffset);
+}
+
+function drillDown(node) {
+  while (node.firstChild)
+    node = node.firstChild;
+  return node;
 }
 
 function replaceTextIn(node, start, end) {
